@@ -1,10 +1,14 @@
 import express from 'express';
-import paymentsRoutes from './routes/payments.routes.js';
+import morgan from 'morgan';
+import paymentsRoutes from './routes/payment.routes.js';
+import { PORT } from './config.js'
 
 //Inicializar
 const app = express();
 
+app.use(morgan('dev'))
+
 app.use(paymentsRoutes);
 
-app.listen(3000);
-console.log('Server on port ', 3000);
+app.listen(PORT);
+console.log('Server on port ', PORT);
